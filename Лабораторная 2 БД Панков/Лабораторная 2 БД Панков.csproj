@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D56964F0-CB5C-468B-B491-7B420C2F601B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Лабораторная_2_БД_Панков</RootNamespace>
+    <AssemblyName>Лабораторная 2 БД Панков</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HarfBuzzSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\HarfBuzzSharp.2.8.2.3\lib\net462\HarfBuzzSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc92a3e13d40c573, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveChartsCore.2.0.0-beta.710\lib\netstandard2.0\LiveChartsCore.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore.SkiaSharpView, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc92a3e13d40c573, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveChartsCore.SkiaSharpView.2.0.0-beta.710\lib\netstandard2.0\LiveChartsCore.SkiaSharpView.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveChartsCore.SkiaSharpView.WinForms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc92a3e13d40c573, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveChartsCore.SkiaSharpView.WinForms.2.0.0-beta.710\lib\net462\LiveChartsCore.SkiaSharpView.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=7.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.7.0.2\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.3.1.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.3.1.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SkiaSharp, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.2.88.3\lib\net462\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.HarfBuzz, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.HarfBuzz.2.88.3\lib\net462\SkiaSharp.HarfBuzz.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop.Common, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.Desktop.Common.2.88.3\lib\net462\SkiaSharp.Views.Desktop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.WindowsForms, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.WindowsForms.2.88.3\lib\net462\SkiaSharp.Views.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.7.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChartsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartsForm.Designer.cs">
+      <DependentUpon>ChartsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompositeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompositeForm.Designer.cs">
+      <DependentUpon>CompositeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Excel.cs" />
+    <Compile Include="Forms\Cities_List\AddOrChangeEntryForm_Cities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cities_List\AddOrChangeEntryForm_Cities.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_Cities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cities_List\ChangeEntryForm_Cities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cities_List\ChangeEntryForm_Cities.Designer.cs">
+      <DependentUpon>ChangeEntryForm_Cities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cities_List\DeleteEntryForm_Cities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cities_List\DeleteEntryForm_Cities.Designer.cs">
+      <DependentUpon>DeleteEntryForm_Cities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cities_List\SearchEntryForm_Cities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cities_List\SearchEntryForm_Cities.Designer.cs">
+      <DependentUpon>SearchEntryForm_Cities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\AddOrChangeEntryForm_GardenPlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\AddOrChangeEntryForm_GardenPlots.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_GardenPlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\ChengeEntryForm_GardenPlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\ChengeEntryForm_GardenPlots.Designer.cs">
+      <DependentUpon>ChengeEntryForm_GardenPlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\DeleteEntryForm_GardenPlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\DeleteEntryForm_GardenPlots.Designer.cs">
+      <DependentUpon>DeleteEntryForm_GardenPlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\SearchEntryForm_GardenPlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\SearchEntryForm_GardenPlots.Designer.cs">
+      <DependentUpon>SearchEntryForm_GardenPlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\AddOrChangeEntryForm_CareHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\AddOrChangeEntryForm_CareHistory.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_CareHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\ChangeEntryForm_HistoryPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\ChangeEntryForm_HistoryPP.Designer.cs">
+      <DependentUpon>ChangeEntryForm_HistoryPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\DeleteEntryForm_HistoryPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\DeleteEntryForm_HistoryPP.Designer.cs">
+      <DependentUpon>DeleteEntryForm_HistoryPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\SearchEntryForm_HistoryPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryPP_Table\SearchEntryForm_HistoryPP.Designer.cs">
+      <DependentUpon>SearchEntryForm_HistoryPP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\DeleteEntryForm_IAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\DeleteEntryForm_IAG.Designer.cs">
+      <DependentUpon>DeleteEntryForm_IAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\SearchEntryForm_IAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\SearchEntryForm_IAG.Designer.cs">
+      <DependentUpon>SearchEntryForm_IAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\DeleteEntryForm_PlantedPlant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\DeleteEntryForm_PlantedPlant.Designer.cs">
+      <DependentUpon>DeleteEntryForm_PlantedPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\SearchEntryForm_PlantedPlant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\SearchEntryForm_PlantedPlant.Designer.cs">
+      <DependentUpon>SearchEntryForm_PlantedPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\DeleteEntryForm_PlantFamilies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\DeleteEntryForm_PlantFamilies.Designer.cs">
+      <DependentUpon>DeleteEntryForm_PlantFamilies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\SearchEntryForm_PlantFamilies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\SearchEntryForm_PlantFamilies.Designer.cs">
+      <DependentUpon>SearchEntryForm_PlantFamilies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\DeleteEntryForm_PlantSpecies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\DeleteEntryForm_PlantSpecies.Designer.cs">
+      <DependentUpon>DeleteEntryForm_PlantSpecies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\SearchEntryForm_PlantSpecies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\SearchEntryForm_PlantSpecies.Designer.cs">
+      <DependentUpon>SearchEntryForm_PlantSpecies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\DeleteEntryForm_PlantСatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\DeleteEntryForm_PlantСatalog.Designer.cs">
+      <DependentUpon>DeleteEntryForm_PlantСatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\SearchEntryForm_PlantСatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\SearchEntryForm_PlantСatalog.Designer.cs">
+      <DependentUpon>SearchEntryForm_PlantСatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions_List\DeleteEntryForm_Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions_List\DeleteEntryForm_Positions.Designer.cs">
+      <DependentUpon>DeleteEntryForm_Positions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions_List\SearchEntryForm_Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions_List\SearchEntryForm_Positions.Designer.cs">
+      <DependentUpon>SearchEntryForm_Positions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenerationEntry.cs" />
+    <Compile Include="GenerationEntryFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerationEntryFrom.Designer.cs">
+      <DependentUpon>GenerationEntryFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifiableViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifiableViewForm.Designer.cs">
+      <DependentUpon>ModifiableViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestForm.Designer.cs">
+      <DependentUpon>RequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestsForm.Designer.cs">
+      <DependentUpon>RequestsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\DeleteEntryForm_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\DeleteEntryForm_Staff.Designer.cs">
+      <DependentUpon>DeleteEntryForm_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\SearchEntryForm_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\SearchEntryForm_Staff.Designer.cs">
+      <DependentUpon>SearchEntryForm_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\ChangeEntryFormForm_TreatmentСP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\ChangeEntryFormForm_TreatmentСP.Designer.cs">
+      <DependentUpon>ChangeEntryFormForm_TreatmentСP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\DeleteEntryForm_TreatmentСP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\DeleteEntryForm_TreatmentСP.Designer.cs">
+      <DependentUpon>DeleteEntryForm_TreatmentСP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\SearchEntryForm_TreatmentСP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\SearchEntryForm_TreatmentСP.Designer.cs">
+      <DependentUpon>SearchEntryForm_TreatmentСP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\ChangeEntryForm_IAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\ChangeEntryForm_IAG.Designer.cs">
+      <DependentUpon>ChangeEntryForm_IAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\ChangeEntryForm_PlantedPlant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\ChangeEntryForm_PlantedPlant.Designer.cs">
+      <DependentUpon>ChangeEntryForm_PlantedPlant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\ChangeEntryForm_PlantFamilies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\ChangeEntryForm_PlantFamilies.Designer.cs">
+      <DependentUpon>ChangeEntryForm_PlantFamilies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\ChangeEntryForm_PlantSpecies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\ChangeEntryForm_PlantSpecies.Designer.cs">
+      <DependentUpon>ChangeEntryForm_PlantSpecies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\ChangeEntryForm_PlantСatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\ChangeEntryForm_PlantСatalog.Designer.cs">
+      <DependentUpon>ChangeEntryForm_PlantСatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions_List\AddOrChangeEntryForm_Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions_List\AddOrChangeEntryForm_Positions.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_Positions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Positions_List\ChangeEntryForm_Positions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Positions_List\ChangeEntryForm_Positions.Designer.cs">
+      <DependentUpon>ChangeEntryForm_Positions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\AddOrChangeEntryForm_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\AddOrChangeEntryForm_Staff.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\AddOrChangeEntryForm_Fertilizers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fertilizers_List\AddOrChangeEntryForm_Fertilizers.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_Fertilizers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\AddOrChangeEntryForm_PlantFamilies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantFamilies_List\AddOrChangeEntryForm_PlantFamilies.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_PlantFamilies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\AddOrChangeEntryForm_PlantSpecies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantSpecies_Table\AddOrChangeEntryForm_PlantSpecies.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_PlantSpecies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\AddOrChangeEntryForm_PlantedPlants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantedPlant_Table\AddOrChangeEntryForm_PlantedPlants.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_PlantedPlants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\AddOrChangeEntryForm_PlantСatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlantСatalog_Table\AddOrChangeEntryForm_PlantСatalog.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_PlantСatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\NULL_FROM_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GardenPlots_Table\NULL_FROM_1.Designer.cs">
+      <DependentUpon>NULL_FROM_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\AddOrChangeEntryForm_IAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IAG_Table\AddOrChangeEntryForm_IAG.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_IAG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\ChangeEntryForm_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff_Table\ChangeEntryForm_Staff.Designer.cs">
+      <DependentUpon>ChangeEntryForm_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\AddOrChangeEntryForm_TypesOwnership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\AddOrChangeEntryForm_TypesOwnership.Designer.cs">
+      <DependentUpon>AddOrChangeEntryForm_TypesOwnership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\ChangeEntryForm_TypesOwnership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\ChangeEntryForm_TypesOwnership.Designer.cs">
+      <DependentUpon>ChangeEntryForm_TypesOwnership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\DeleteEntryForm_TypesOwnership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\DeleteEntryForm_TypesOwnership.Designer.cs">
+      <DependentUpon>DeleteEntryForm_TypesOwnership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\SearchEntryForm_TypesOwnership.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypesOwnership_List\SearchEntryForm_TypesOwnership.Designer.cs">
+      <DependentUpon>SearchEntryForm_TypesOwnership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select_And_Delete_Line_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select_And_Delete_Line_Form.Designer.cs">
+      <DependentUpon>Select_And_Delete_Line_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Type_Delete_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Type_Delete_Form.Designer.cs">
+      <DependentUpon>Type_Delete_Form.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChartsForm.resx">
+      <DependentUpon>ChartsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompositeForm.resx">
+      <DependentUpon>CompositeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cities_List\AddOrChangeEntryForm_Cities.resx">
+      <DependentUpon>AddOrChangeEntryForm_Cities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cities_List\ChangeEntryForm_Cities.resx">
+      <DependentUpon>ChangeEntryForm_Cities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cities_List\DeleteEntryForm_Cities.resx">
+      <DependentUpon>DeleteEntryForm_Cities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cities_List\SearchEntryForm_Cities.resx">
+      <DependentUpon>SearchEntryForm_Cities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GardenPlots_Table\AddOrChangeEntryForm_GardenPlots.resx">
+      <DependentUpon>AddOrChangeEntryForm_GardenPlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GardenPlots_Table\ChengeEntryForm_GardenPlots.resx">
+      <DependentUpon>ChengeEntryForm_GardenPlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GardenPlots_Table\DeleteEntryForm_GardenPlots.resx">
+      <DependentUpon>DeleteEntryForm_GardenPlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GardenPlots_Table\SearchEntryForm_GardenPlots.resx">
+      <DependentUpon>SearchEntryForm_GardenPlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryPP_Table\AddOrChangeEntryForm_CareHistory.resx">
+      <DependentUpon>AddOrChangeEntryForm_CareHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryPP_Table\ChangeEntryForm_HistoryPP.resx">
+      <DependentUpon>ChangeEntryForm_HistoryPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryPP_Table\DeleteEntryForm_HistoryPP.resx">
+      <DependentUpon>DeleteEntryForm_HistoryPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryPP_Table\SearchEntryForm_HistoryPP.resx">
+      <DependentUpon>SearchEntryForm_HistoryPP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IAG_Table\DeleteEntryForm_IAG.resx">
+      <DependentUpon>DeleteEntryForm_IAG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IAG_Table\SearchEntryForm_IAG.resx">
+      <DependentUpon>SearchEntryForm_IAG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantedPlant_Table\DeleteEntryForm_PlantedPlant.resx">
+      <DependentUpon>DeleteEntryForm_PlantedPlant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantedPlant_Table\SearchEntryForm_PlantedPlant.resx">
+      <DependentUpon>SearchEntryForm_PlantedPlant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantFamilies_List\DeleteEntryForm_PlantFamilies.resx">
+      <DependentUpon>DeleteEntryForm_PlantFamilies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantFamilies_List\SearchEntryForm_PlantFamilies.resx">
+      <DependentUpon>SearchEntryForm_PlantFamilies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantSpecies_Table\DeleteEntryForm_PlantSpecies.resx">
+      <DependentUpon>DeleteEntryForm_PlantSpecies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantSpecies_Table\SearchEntryForm_PlantSpecies.resx">
+      <DependentUpon>SearchEntryForm_PlantSpecies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantСatalog_Table\DeleteEntryForm_PlantСatalog.resx">
+      <DependentUpon>DeleteEntryForm_PlantСatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantСatalog_Table\SearchEntryForm_PlantСatalog.resx">
+      <DependentUpon>SearchEntryForm_PlantСatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions_List\DeleteEntryForm_Positions.resx">
+      <DependentUpon>DeleteEntryForm_Positions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions_List\SearchEntryForm_Positions.resx">
+      <DependentUpon>SearchEntryForm_Positions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerationEntryFrom.resx">
+      <DependentUpon>GenerationEntryFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifiableViewForm.resx">
+      <DependentUpon>ModifiableViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestForm.resx">
+      <DependentUpon>RequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestsForm.resx">
+      <DependentUpon>RequestsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff_Table\DeleteEntryForm_Staff.resx">
+      <DependentUpon>DeleteEntryForm_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff_Table\SearchEntryForm_Staff.resx">
+      <DependentUpon>SearchEntryForm_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fertilizers_List\ChangeEntryFormForm_TreatmentСP.resx">
+      <DependentUpon>ChangeEntryFormForm_TreatmentСP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fertilizers_List\DeleteEntryForm_TreatmentСP.resx">
+      <DependentUpon>DeleteEntryForm_TreatmentСP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fertilizers_List\SearchEntryForm_TreatmentСP.resx">
+      <DependentUpon>SearchEntryForm_TreatmentСP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IAG_Table\ChangeEntryForm_IAG.resx">
+      <DependentUpon>ChangeEntryForm_IAG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantedPlant_Table\ChangeEntryForm_PlantedPlant.resx">
+      <DependentUpon>ChangeEntryForm_PlantedPlant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantFamilies_List\ChangeEntryForm_PlantFamilies.resx">
+      <DependentUpon>ChangeEntryForm_PlantFamilies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantSpecies_Table\ChangeEntryForm_PlantSpecies.resx">
+      <DependentUpon>ChangeEntryForm_PlantSpecies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantСatalog_Table\ChangeEntryForm_PlantСatalog.resx">
+      <DependentUpon>ChangeEntryForm_PlantСatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions_List\AddOrChangeEntryForm_Positions.resx">
+      <DependentUpon>AddOrChangeEntryForm_Positions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Positions_List\ChangeEntryForm_Positions.resx">
+      <DependentUpon>ChangeEntryForm_Positions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff_Table\AddOrChangeEntryForm_Staff.resx">
+      <DependentUpon>AddOrChangeEntryForm_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fertilizers_List\AddOrChangeEntryForm_Fertilizers.resx">
+      <DependentUpon>AddOrChangeEntryForm_Fertilizers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantFamilies_List\AddOrChangeEntryForm_PlantFamilies.resx">
+      <DependentUpon>AddOrChangeEntryForm_PlantFamilies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantSpecies_Table\AddOrChangeEntryForm_PlantSpecies.resx">
+      <DependentUpon>AddOrChangeEntryForm_PlantSpecies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantedPlant_Table\AddOrChangeEntryForm_PlantedPlants.resx">
+      <DependentUpon>AddOrChangeEntryForm_PlantedPlants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlantСatalog_Table\AddOrChangeEntryForm_PlantСatalog.resx">
+      <DependentUpon>AddOrChangeEntryForm_PlantСatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GardenPlots_Table\NULL_FROM_1.resx">
+      <DependentUpon>NULL_FROM_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IAG_Table\AddOrChangeEntryForm_IAG.resx">
+      <DependentUpon>AddOrChangeEntryForm_IAG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff_Table\ChangeEntryForm_Staff.resx">
+      <DependentUpon>ChangeEntryForm_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypesOwnership_List\AddOrChangeEntryForm_TypesOwnership.resx">
+      <DependentUpon>AddOrChangeEntryForm_TypesOwnership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypesOwnership_List\ChangeEntryForm_TypesOwnership.resx">
+      <DependentUpon>ChangeEntryForm_TypesOwnership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypesOwnership_List\DeleteEntryForm_TypesOwnership.resx">
+      <DependentUpon>DeleteEntryForm_TypesOwnership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypesOwnership_List\SearchEntryForm_TypesOwnership.resx">
+      <DependentUpon>SearchEntryForm_TypesOwnership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Select_And_Delete_Line_Form.resx">
+      <DependentUpon>Select_And_Delete_Line_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Type_Delete_Form.resx">
+      <DependentUpon>Type_Delete_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Scheme_DB.png" />
+  </ItemGroup>
+  <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTesting, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
+  <Import Project="..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
+  <Import Project="..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.3\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets')" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.3\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.3\build\net462\SkiaSharp.NativeAssets.Win32.targets')" />
+</Project>
