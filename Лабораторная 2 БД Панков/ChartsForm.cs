@@ -29,7 +29,7 @@ namespace Лабораторная_2_БД_Панков
         }
 
         ChartType selected_type;
-
+        
         public ChartsForm(ChartType _selected_type)
         {
             this.selected_type = _selected_type;
@@ -67,9 +67,12 @@ namespace Лабораторная_2_БД_Панков
             DataTable dt;
             ISeries[] series = new ISeries[0];
             List<string> labels;
-            string TextLabe = "";
+            string NameSeriesText = "";
+            string XNameText = "";
+            string YNameText = "";
 
-            switch(type)
+
+            switch (type)
             {
                 case ChartType.FirstGardens_On_CountPlants:
                     await Task.Run(() =>
@@ -95,7 +98,9 @@ namespace Лабораторная_2_БД_Панков
                             }
                         };
 
-                        TextLabe = "Первые 20 садов по количеству растений";
+                        NameSeriesText = "Первые 20 садов по количеству растений";
+                        YNameText = "Количество";
+                        XNameText = "Номера садов в серии";
                     });
                     break;
 
@@ -123,7 +128,9 @@ namespace Лабораторная_2_БД_Панков
                             }
                         };
 
-                        TextLabe = "Первые 20 садов с самый низким возрастом сотрудников";
+                        NameSeriesText = "Первые 20 садов с самый низким возрастом сотрудников";
+                        YNameText = "Возраст";
+                        XNameText = "Номера садов в серии";
                     });
                     break;
 
@@ -151,7 +158,9 @@ namespace Лабораторная_2_БД_Панков
                             }
                         };
 
-                        TextLabe = "Первые 20 садов по количеству участков";
+                        NameSeriesText = "Первые 20 садов по количеству участков";
+                        YNameText = "Количество";
+                        XNameText = "Номера садов в серии";
                     });
                     break;
 
@@ -179,7 +188,9 @@ namespace Лабораторная_2_БД_Панков
                             }
                         };
 
-                        TextLabe = "Первые 20 растений по количеству";
+                        NameSeriesText = "Первые 20 растений по количеству";
+                        YNameText = "Количество";
+                        XNameText = "Номера растений в серии";
                     });
                     break;
 
@@ -207,35 +218,67 @@ namespace Лабораторная_2_БД_Панков
                             }
                         };
 
-                        TextLabe = "Первые 20 садов по количеству сотрудников";
+                        NameSeriesText = "Первые 20 садов по количеству сотрудников";
+                        YNameText = "Сотрудников";
+                        XNameText = "Номера садов в серии";
                     });
                     break;
 
                 default: return;
             }
 
+            if(this.DialogResult == DialogResult.OK)
+            {
+                string Text = "Запрос был успешно выполнен, теперь вы снова можете пользоваться программой!";
+                MessageBox.Show(Text, "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             selected_type = type;
 
-            cartesianChart1.Invoke((MethodInvoker)delegate
+            try
             {
-                cartesianChart1.Series = series;
-                label1.Text = TextLabe;
-                Loading_panel.Visible = false;
-            });
+                cartesianChart1.Invoke((MethodInvoker)delegate
+                {
+                    YName_Lable.Text = YNameText;
+                    XName_Lable.Text = XNameText;
+
+                    cartesianChart1.Series = series;
+                    NameSeries_Lable.Text = NameSeriesText;
+                    Loading_panel.Visible = false;
+                });
+            } catch(Exception ex) { return; }
+
 
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
         {
-            label1.Left = this.cartesianChart1.Width / 2 - label1.Width / 2;//привели в центр
+            NameSeries_Lable.Left = this.cartesianChart1.Width / 2 - NameSeries_Lable.Width / 2;//привели в центр
         }
 
         private void ChartsForm_SizeChanged(object sender, EventArgs e)
         {
-            label1_TextChanged(label1, e);
-
             if(Loading_panel.Visible)
-                label2.Location = new Point(Loading_panel.Width / 2 - label2.Width / 2, Loading_panel.Height / 2 - label2.Height / 2);
+                LoadingLable.Location = new Point(Loading_panel.Width / 2 - LoadingLable.Width / 2, Loading_panel.Height / 2 - LoadingLable.Height / 2);
+
+            NameSeries_Lable.Left = this.cartesianChart1.Width / 2 - NameSeries_Lable.Width / 2;//привели в центр
+            XName_Lable.Left = this.cartesianChart1.Width / 2 - XName_Lable.Width / 2;
+        }
+
+        private void ChartsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(Loading_panel.Visible == true)
+            {
+                string Text = "При закрытии формы запрос в базу данный не будет отменен и вы не сможете подавать запросы до тех пора пока он не выполнится.\nВы уверены что хотите продолжить?";
+                if(MessageBox.Show(Text, "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+
+            DialogResult = DialogResult.OK;
+
         }
     }
 }

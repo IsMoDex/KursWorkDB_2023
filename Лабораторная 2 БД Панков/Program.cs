@@ -18,10 +18,10 @@ namespace Лабораторная_2_БД_Панков
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (new LoginForm().ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
+            //if (new LoginForm().ShowDialog() == DialogResult.Cancel)
+            //{
+            //    return;
+            //}
 
             Application.Run(new MainForm());
         }
