@@ -33,8 +33,6 @@
             this.StartRequest_Button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Parameter_TextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Request_TextBox = new System.Windows.Forms.TextBox();
             this.dataGridView_RequestTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +41,7 @@
             this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.простыеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сложныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.техническиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.курсовыеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CountEtryLable = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             this.Loading_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Parameter_two_TextBox = new System.Windows.Forms.TextBox();
-            this.техническиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_RequestTable)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.Loading_panel.SuspendLayout();
@@ -92,10 +90,9 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(660, 65);
+            this.label2.Location = new System.Drawing.Point(12, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 26);
             this.label2.TabIndex = 3;
@@ -103,36 +100,13 @@
             // 
             // Parameter_TextBox
             // 
-            this.Parameter_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Parameter_TextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Parameter_TextBox.Location = new System.Drawing.Point(665, 94);
-            this.Parameter_TextBox.Name = "Parameter_TextBox";
-            this.Parameter_TextBox.Size = new System.Drawing.Size(380, 34);
-            this.Parameter_TextBox.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(660, 197);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 26);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Код запроса:";
-            // 
-            // Request_TextBox
-            // 
-            this.Request_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Parameter_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Request_TextBox.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Request_TextBox.Location = new System.Drawing.Point(665, 226);
-            this.Request_TextBox.Multiline = true;
-            this.Request_TextBox.Name = "Request_TextBox";
-            this.Request_TextBox.ReadOnly = true;
-            this.Request_TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.Request_TextBox.Size = new System.Drawing.Size(380, 363);
-            this.Request_TextBox.TabIndex = 6;
+            this.Parameter_TextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Parameter_TextBox.Location = new System.Drawing.Point(17, 94);
+            this.Parameter_TextBox.Name = "Parameter_TextBox";
+            this.Parameter_TextBox.Size = new System.Drawing.Size(1028, 34);
+            this.Parameter_TextBox.TabIndex = 4;
             // 
             // dataGridView_RequestTable
             // 
@@ -142,13 +116,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_RequestTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_RequestTable.Location = new System.Drawing.Point(12, 68);
+            this.dataGridView_RequestTable.Location = new System.Drawing.Point(17, 200);
             this.dataGridView_RequestTable.Name = "dataGridView_RequestTable";
             this.dataGridView_RequestTable.ReadOnly = true;
             this.dataGridView_RequestTable.RowHeadersVisible = false;
             this.dataGridView_RequestTable.RowHeadersWidth = 51;
             this.dataGridView_RequestTable.RowTemplate.Height = 24;
-            this.dataGridView_RequestTable.Size = new System.Drawing.Size(642, 521);
+            this.dataGridView_RequestTable.Size = new System.Drawing.Size(1025, 488);
             this.dataGridView_RequestTable.TabIndex = 12;
             // 
             // menuStrip1
@@ -160,7 +134,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1057, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1057, 30);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,7 +144,7 @@
             this.сохранитьВEXCELToolStripMenuItem,
             this.сохранитьКакToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьВEXCELToolStripMenuItem
@@ -195,40 +169,45 @@
             this.техническиеToolStripMenuItem,
             this.курсовыеToolStripMenuItem});
             this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
-            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(84, 26);
             this.запросыToolStripMenuItem.Text = "Запросы";
             // 
             // простыеToolStripMenuItem
             // 
             this.простыеToolStripMenuItem.Name = "простыеToolStripMenuItem";
-            this.простыеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.простыеToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.простыеToolStripMenuItem.Text = "Простые";
             // 
             // сложныеToolStripMenuItem
             // 
             this.сложныеToolStripMenuItem.Name = "сложныеToolStripMenuItem";
-            this.сложныеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сложныеToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.сложныеToolStripMenuItem.Text = "Сложные";
+            // 
+            // техническиеToolStripMenuItem
+            // 
+            this.техническиеToolStripMenuItem.Name = "техническиеToolStripMenuItem";
+            this.техническиеToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.техническиеToolStripMenuItem.Text = "Технические";
             // 
             // курсовыеToolStripMenuItem
             // 
             this.курсовыеToolStripMenuItem.Name = "курсовыеToolStripMenuItem";
-            this.курсовыеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.курсовыеToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.курсовыеToolStripMenuItem.Text = "Курсовые";
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
             // CountEtryLable
             // 
-            this.CountEtryLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CountEtryLable.AutoSize = true;
             this.CountEtryLable.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CountEtryLable.Location = new System.Drawing.Point(778, 65);
+            this.CountEtryLable.Location = new System.Drawing.Point(130, 65);
             this.CountEtryLable.Name = "CountEtryLable";
             this.CountEtryLable.Size = new System.Drawing.Size(228, 26);
             this.CountEtryLable.TabIndex = 13;
@@ -241,16 +220,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Loading_panel.BackColor = System.Drawing.Color.Gainsboro;
             this.Loading_panel.Controls.Add(this.Loading_label);
-            this.Loading_panel.Location = new System.Drawing.Point(12, 68);
+            this.Loading_panel.Location = new System.Drawing.Point(17, 200);
             this.Loading_panel.Name = "Loading_panel";
-            this.Loading_panel.Size = new System.Drawing.Size(642, 521);
+            this.Loading_panel.Size = new System.Drawing.Size(1025, 488);
             this.Loading_panel.TabIndex = 15;
             // 
             // Loading_label
             // 
             this.Loading_label.AutoSize = true;
             this.Loading_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Loading_label.Location = new System.Drawing.Point(86, 226);
+            this.Loading_label.Location = new System.Drawing.Point(295, 221);
             this.Loading_label.Name = "Loading_label";
             this.Loading_label.Size = new System.Drawing.Size(430, 38);
             this.Loading_label.TabIndex = 0;
@@ -258,10 +237,9 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(668, 131);
+            this.label4.Location = new System.Drawing.Point(20, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 26);
             this.label4.TabIndex = 16;
@@ -269,31 +247,24 @@
             // 
             // Parameter_two_TextBox
             // 
-            this.Parameter_two_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Parameter_two_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Parameter_two_TextBox.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Parameter_two_TextBox.Location = new System.Drawing.Point(665, 160);
+            this.Parameter_two_TextBox.Location = new System.Drawing.Point(17, 160);
             this.Parameter_two_TextBox.Name = "Parameter_two_TextBox";
-            this.Parameter_two_TextBox.Size = new System.Drawing.Size(380, 34);
+            this.Parameter_two_TextBox.Size = new System.Drawing.Size(1028, 34);
             this.Parameter_two_TextBox.TabIndex = 17;
-            // 
-            // техническиеToolStripMenuItem
-            // 
-            this.техническиеToolStripMenuItem.Name = "техническиеToolStripMenuItem";
-            this.техническиеToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.техническиеToolStripMenuItem.Text = "Технические";
             // 
             // RequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 601);
+            this.ClientSize = new System.Drawing.Size(1057, 700);
             this.Controls.Add(this.Parameter_two_TextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Loading_panel);
             this.Controls.Add(this.CountEtryLable);
             this.Controls.Add(this.dataGridView_RequestTable);
-            this.Controls.Add(this.Request_TextBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Parameter_TextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.StartRequest_Button);
@@ -322,8 +293,6 @@
         private System.Windows.Forms.Button StartRequest_Button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Parameter_TextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Request_TextBox;
         private System.Windows.Forms.DataGridView dataGridView_RequestTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;

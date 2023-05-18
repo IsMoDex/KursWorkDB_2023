@@ -124,12 +124,12 @@ namespace Лабораторная_2_БД_Панков.Forms
             if(ToAddForm)
             {
                 SQL = $"INSERT INTO \"{MainForm.Plants}\" ( \"код_участка\", \"номер_в_каталоге\", \"фото_растения\", \"дата_посадки\", \"дата_гибели\", \"стоимость_саженца\", \"условия_ухода_и_содержания\" ) VALUES " +
-                    $"( \'{код_участка_comboBox.Text}\', \'{номер_в_каталоге_comboBox.Text}\', @Image, \'{дата_посадки_dateTimePicker.Value.ToString("dd-MM-yyyy")}\', @DeadDate, \'{стоимность_саженца_numericUpDown.Value}\', \'{условия_ухода_и_содержания_textBox.Text}\' )";
+                    $"( \'{код_участка_comboBox.Text}\', \'{номер_в_каталоге_comboBox.Text}\', @Image, \'{дата_посадки_dateTimePicker.Value.ToString("dd.MM.yyyy")}\', @DeadDate, \'{стоимность_саженца_numericUpDown.Value}\', \'{условия_ухода_и_содержания_textBox.Text}\' )";
             }
             else
             {
                 SQL = $"UPDATE \"{MainForm.Plants}\" SET " +
-                    $"\"код_участка\" = \'{код_участка_comboBox.Text}\', \"номер_в_каталоге\" = \'{номер_в_каталоге_comboBox.Text}\', \"фото_растения\" = \'@Image\', \"дата_посадки\" = \'{дата_посадки_dateTimePicker.Value.ToString("dd-MM-yyyy")}\', \"дата_гибели\" = @DeadDate, \"стоимость_саженца\" = \'{стоимность_саженца_numericUpDown.Value}\', \"условия_ухода_и_содержания\" = \'{условия_ухода_и_содержания_textBox.Text}\' " +
+                    $"\"код_участка\" = \'{код_участка_comboBox.Text}\', \"номер_в_каталоге\" = \'{номер_в_каталоге_comboBox.Text}\', \"фото_растения\" = \'@Image\', \"дата_посадки\" = \'{дата_посадки_dateTimePicker.Value.ToString("dd.MM.yyyy")}\', \"дата_гибели\" = @DeadDate, \"стоимость_саженца\" = \'{стоимность_саженца_numericUpDown.Value}\', \"условия_ухода_и_содержания\" = \'{условия_ухода_и_содержания_textBox.Text}\' " +
                     $"WHERE \"код_растения\" = \'{Record_ID}\'";
             }
 

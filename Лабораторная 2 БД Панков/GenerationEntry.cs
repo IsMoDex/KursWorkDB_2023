@@ -17,7 +17,7 @@ namespace Лабораторная_2_БД_Панков
     {
         public delegate void ProgressBarDelegate(int procent);
         public static bool StopGenerate = false;
-        const string DateFormat = "dd-MM-yyyy";
+        const string DateFormat = "dd.MM.yyyy";
         /// <summary>
         /// Генерирует заданное количество записей для таблицы "История ухода"
         /// </summary>

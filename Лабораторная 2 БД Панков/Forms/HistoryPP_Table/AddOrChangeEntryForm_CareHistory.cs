@@ -151,13 +151,13 @@ namespace Лабораторная_2_БД_Панков.Forms.HistoryPP_Table
             if (ToAddForm)
             {
                 SQL = $"INSERT INTO \"{MainForm.CareHistory}\" ( \"код_растения\",  \"дата_обработки\", \"код_средства\", \"код_сотрудника\", \"количество_упоковок\" ) VALUES " +
-                    $"( {код_растения_comboBox.Text}, \'{дата_обработки_dateTimePicker.Value.ToString("dd-MM-yyyy")}\', {(FirtilizerSelect == -1 ? "NULL" : FertilizerID[FirtilizerSelect].ToString())}, {(StuffSelect == -1 ? "NULL" : StuffID[StuffSelect].ToString())}, {количество_упоковок_numericUpDown.Value} );";
+                    $"( {код_растения_comboBox.Text}, \'{дата_обработки_dateTimePicker.Value.ToString("dd.MM.yyyy")}\', {(FirtilizerSelect == -1 ? "NULL" : FertilizerID[FirtilizerSelect].ToString())}, {(StuffSelect == -1 ? "NULL" : StuffID[StuffSelect].ToString())}, {количество_упоковок_numericUpDown.Value} );";
             }
             else
             {
                 
                 SQL = $"UPDATE \"{MainForm.CareHistory}\" SET " +
-                    $"\"код_растения\" = \'{код_растения_comboBox.Text}\', \"дата_обработки\" = \'{дата_обработки_dateTimePicker.Value.ToString("dd-MM-yyyy")}\', \"код_средства\" = \'{(FirtilizerSelect == -1 ? FretilizerOriginal : FertilizerID[FirtilizerSelect])}\', \"код_сотрудника\" = \'{(StuffSelect == -1 ? StuffOriginal : StuffID[StuffSelect])}\', \"количество_упоковок\" = \'{количество_упоковок_numericUpDown.Value}\' " +
+                    $"\"код_растения\" = \'{код_растения_comboBox.Text}\', \"дата_обработки\" = \'{дата_обработки_dateTimePicker.Value.ToString("dd.MM.yyyy")}\', \"код_средства\" = \'{(FirtilizerSelect == -1 ? FretilizerOriginal : FertilizerID[FirtilizerSelect])}\', \"код_сотрудника\" = \'{(StuffSelect == -1 ? StuffOriginal : StuffID[StuffSelect])}\', \"количество_упоковок\" = \'{количество_упоковок_numericUpDown.Value}\' " +
                     $"WHERE \"код_записи\" = {Record_ID}";
 
                 //{(FirtilizerSelect == -1 ? SelectedFretilizer : FertilizerID[FirtilizerSelect])}, {(StuffSelect == -1 ? SelectedStuff : StuffID[StuffSelect])}

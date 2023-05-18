@@ -51,17 +51,17 @@ namespace Лабораторная_2_БД_Панков
             техническиеToolStripMenuItem.Click += (sen, ev) => setTypeForm(RequestLevel.Technical);
             курсовыеToolStripMenuItem.Click += (sen, ev) => setTypeForm(RequestLevel.Individual);
 
-            Request_TextBox.MouseWheel += (sen, ev) =>
-            {
-                var el = sen as System.Windows.Forms.TextBox;
-                if (Control.ModifierKeys == Keys.Control)
-                {
-                    if (ev.Delta > 0)
-                        el.Font = new Font(el.Font.Name, el.Font.Size + 1);
-                    else if (el.Font.Size - 1 > 1)
-                        el.Font = new Font(el.Font.Name, el.Font.Size - 1);
-                }
-            };
+            //Request_TextBox.MouseWheel += (sen, ev) =>
+            //{
+            //    var el = sen as System.Windows.Forms.TextBox;
+            //    if (Control.ModifierKeys == Keys.Control)
+            //    {
+            //        if (ev.Delta > 0)
+            //            el.Font = new Font(el.Font.Name, el.Font.Size + 1);
+            //        else if (el.Font.Size - 1 > 1)
+            //            el.Font = new Font(el.Font.Name, el.Font.Size - 1);
+            //    }
+            //};
 
             SetTableBehavior(dataGridView_RequestTable);
         }
@@ -218,12 +218,12 @@ namespace Лабораторная_2_БД_Панков
 
         private void RequestList_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Request_TextBox.Text = RequestList_ComboBox.SelectedValue.ToString();
+            //Request_TextBox.Text = RequestList_ComboBox.SelectedValue.ToString();
         }
 
         private async void StartRequest_Button_Click(object sender, EventArgs e)
         {
-            string SQL = Request_TextBox.Text;
+            string SQL = RequestList_ComboBox.SelectedValue.ToString();//Request_TextBox.Text;
 
             if
             (
