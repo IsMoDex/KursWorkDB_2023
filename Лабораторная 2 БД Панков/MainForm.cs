@@ -216,7 +216,7 @@ namespace Лабораторная_2_БД_Панков
             };
             изменитьЗаписьToolStripMenuItem.Click += EditEntryButton_Click;
         }
-        
+
         /// <summary>
         /// Получение данных тип DataTable из sql запросса
         /// </summary>
